@@ -1,0 +1,13 @@
+version: "3.9" # optional since v1.27.0
+
+services:
+  sqlserver:
+    container_name: sqlserver
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - "1433:1433"
+    # volumes:
+    #   - ./sqlvolume:/var/opt/mssql
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Password12!
