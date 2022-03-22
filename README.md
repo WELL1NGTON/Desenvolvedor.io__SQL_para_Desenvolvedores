@@ -40,27 +40,27 @@ Links:
 
 ### Introdução
 
-- [ ] Apresentação (1:00)
+- [x] Apresentação (1:00)
 
 ### Iniciando no mundo SQL
 
-- [ ] Introdução (1:00)
-- [ ] O que é SQL? (3:00)
-- [ ] O que é SQL Server? (8:00)
-- [ ] História do SQL Server (5:00)
-- [ ] O que é um modelo relacional? (4:00)
-- [ ] O que é um banco de dados? (1:00)
-- [ ] O que é uma tabela? (2:00)
-- [ ] O que é uma chave primária? (2:00)
-- [ ] O que é uma chave estrangeira? (2:00)
-- [ ] O que é T-SQL? (2:00)
+- [x] Introdução (1:00)
+- [x] O que é SQL? (3:00)
+- [x] O que é SQL Server? (8:00)
+- [x] História do SQL Server (5:00)
+- [x] O que é um modelo relacional? (4:00)
+- [x] O que é um banco de dados? (1:00)
+- [x] O que é uma tabela? (2:00)
+- [x] O que é uma chave primária? (2:00)
+- [x] O que é uma chave estrangeira? (2:00)
+- [x] O que é T-SQL? (2:00)
 
 ### Ambiente
 
-- [ ] Instalação do SQL Server (2:00)
-- [ ] Instalaçao do SQL Server (Docker) (5:00)
-- [ ] Instalação do SSMS (4:00)
-- [ ] Instalação do Azure Data Studio (4:00)
+- [x] Instalação do SQL Server (2:00)
+- [x] Instalaçao do SQL Server (Docker) (5:00)
+- [x] Instalação do SSMS (4:00)
+- [x] Instalação do Azure Data Studio (4:00)
 
 ### Hands-On-SQL Básico
 
