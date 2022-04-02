@@ -81,3 +81,16 @@ VALUES
 ('Eduardo', '00000000002', GETDATE(), 0),
 ('Bruno', '00000000003', GETDATE(), 0);
 ```
+
+### Consultando registros
+
+```sql
+-- Consultando todos os dados de registros da tabela alunos
+SELECT * FROM alunos;
+
+-- Consultando nome e cpf de todos os registros da tabela alunos
+SELECT nome, cpf FROM alunos;
+
+-- Consulta utilizando alias para o campo nome
+SELECT nome as nome_aluno, cpf FROM alunos;
+```
