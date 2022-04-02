@@ -70,7 +70,7 @@ Links:
 - [x] Inserindo registros (5:00)
 - [x] Consultando registros (3:00)
 - [x] Atualizando registros (7:00)
-- [ ] Excluindo registros (6:00)
+- [x] Excluindo registros (6:00)
 
 ### Base de conhecimentos
 
