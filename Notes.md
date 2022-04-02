@@ -109,3 +109,32 @@ SELECT nome as nome_aluno, cpf FROM alunos;
 -- Atualiza o nascimento para a data atual e o ativo para 1
 UPDATE alunos SET data_nascimento=GETDATE(), ativo=1;
 ```
+
+### Excluindo registros
+
+```sql
+-- Exclui todos os registros da tabela alunos
+-- DELETE FROM alunos;
+
+-- Mesmo efeito do comando anterior, porém muito mais performático
+-- TRUNCATE TABLE alunos;
+
+-- Exclui o primeiro registro da tabela alunos
+-- DELETE TOP (1) FROM alunos;
+
+-- Exclui 10% dos registro da tabela alunos
+-- DELETE TOP (10) PERCENTE FROM alunos;
+
+---
+
+SELECT * FROM alunos;
+
+---
+
+DELETE TOP (1) FROM alunos;
+
+---
+
+SELECT * FROM alunos;
+
+```
