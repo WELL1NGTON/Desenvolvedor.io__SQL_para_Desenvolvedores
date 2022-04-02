@@ -22,3 +22,28 @@ Obs.: caso exista algum problema ao inicializar o docker composer, tente executa
 ### Instalação do Azure Data Studio
 
 Enquanto não existe uma verão flatpak do Azure Data Studio, eu estou utilizando a versão AUR [azuredatastudio-bin](https://aur.archlinux.org/packages/azuredatastudio-bin) no archlinux.
+
+## Hands-On-SQL Básico
+
+Queries executadas na aula:
+
+```sql
+-- Criando um banco de dados
+CREATE DATABASE DesenvolvedorIO;
+
+-- Dropando o banco de dados
+DROP DATABASE DesenvolvedorIO;
+
+-- Forçando o banco a ser "SINGLE_USER" e depois dropando o banco
+-- (truque para não ter problemas com o banco sendo utilizado por outra aplicação)
+ALTER DATABASE DesenvolvedorIO SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+DROP DATABASE DesenvolvedorIO;
+
+-- Criando o banco de dados novamente
+CREATE DATABASE DesenvolvedorIO;
+
+-- Caso queira criar o banco definindo onde os arquivos estarão armazenados
+-- pode utilizar o comando abaixo
+CREATE DATABASE DesenvolvedorIO ON (Name = 'Dev_mdf', FILENAME = 'D:\teste.mdf')
+LOG ON (Name = 'Dev_log', FILENAME = 'D:\teste.ldf')
+```
