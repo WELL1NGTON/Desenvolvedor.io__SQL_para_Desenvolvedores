@@ -68,3 +68,16 @@ CREATE TABLE alunos
     ativo bit DEFAULT 1
 )
 ```
+
+### Inserindo registros
+
+```sql
+-- Inserindo um registro na tabela alunos
+INSERT INTO alunos (nome, cpf, data_nascimento, ativo) VALUES ('Rafael', '00000000001', GETDATE(), 0);
+
+-- Inseringo multiplos registros
+INSERT INTO alunos (nome, cpf, data_nascimento, ativo)
+VALUES
+('Eduardo', '00000000002', GETDATE(), 0),
+('Bruno', '00000000003', GETDATE(), 0);
+```
