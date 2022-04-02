@@ -17,6 +17,8 @@ E para parar:
 docker-compose down
 ```
 
+Obs.: caso exista algum problema ao inicializar o docker composer, tente executar o script `trocar-owner-sqlvolume.sh` para que o docker possa acessar o volume de dados do SQL Server.
+
 ### Instalação do Azure Data Studio
 
 Enquanto não existe uma verão flatpak do Azure Data Studio, eu estou utilizando a versão AUR [azuredatastudio-bin](https://aur.archlinux.org/packages/azuredatastudio-bin) no archlinux.
