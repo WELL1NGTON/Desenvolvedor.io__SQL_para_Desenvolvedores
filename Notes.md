@@ -47,3 +47,24 @@ CREATE DATABASE DesenvolvedorIO;
 CREATE DATABASE DesenvolvedorIO ON (Name = 'Dev_mdf', FILENAME = 'D:\teste.mdf')
 LOG ON (Name = 'Dev_log', FILENAME = 'D:\teste.ldf')
 ```
+
+### Criando uma tabela
+
+Queries executadas na aula:
+
+```sql
+-- Criando uma tabela alunos (no banco DesenvolvedorIO)
+CREATE TABLE alunos
+(
+    -- id chave primária com auto incremento
+    id int PRIMARY KEY IDENTITY,
+    -- nome até 80 caracteres não nulo
+    nome VARCHAR(80) NOT NULL,
+    -- cpf exatos 11 caracteres não nulo
+    cpf CHAR(11) NOT NULL,
+    -- data de nascimento do tipo date
+    data_nascimento DATE,
+    -- ativo do tipo bit (booleano) com valor padrão 1
+    ativo bit DEFAULT 1
+)
+```
