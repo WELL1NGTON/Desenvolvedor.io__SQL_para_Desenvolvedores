@@ -67,7 +67,7 @@ Links:
 - [x] Introdução (1:00)
 - [x] Criando um banco de dados (10:00)
 - [x] Criando uma tabela (8:00)
-- [ ] Inserindo registros (5:00)
+- [x] Inserindo registros (5:00)
 - [ ] Consultando registros (3:00)
 - [ ] Atualizando registros (7:00)
 - [ ] Excluindo registros (6:00)
