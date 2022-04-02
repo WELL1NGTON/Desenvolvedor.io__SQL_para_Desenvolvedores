@@ -94,3 +94,18 @@ SELECT nome, cpf FROM alunos;
 -- Consulta utilizando alias para o campo nome
 SELECT nome as nome_aluno, cpf FROM alunos;
 ```
+
+### Atualizando registros
+
+```sql
+-- SELECT * FROM alunos;
+
+/*
+  UPDATE tabela
+  SET campo=valor, campo1 = valor1, campo2 = campo2 + 'x'
+  WHERE filtro
+*/
+
+-- Atualiza o nascimento para a data atual e o ativo para 1
+UPDATE alunos SET data_nascimento=GETDATE(), ativo=1;
+```

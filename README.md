@@ -69,7 +69,7 @@ Links:
 - [x] Criando uma tabela (8:00)
 - [x] Inserindo registros (5:00)
 - [x] Consultando registros (3:00)
-- [ ] Atualizando registros (7:00)
+- [x] Atualizando registros (7:00)
 - [ ] Excluindo registros (6:00)
 
 ### Base de conhecimentos
