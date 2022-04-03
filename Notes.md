@@ -266,3 +266,24 @@ Query de cidades/estados sem dados duplicados:
 ```sql
 SELECT DISTINCT cidade, estado FROM alunos;
 ```
+
+### Order By
+
+Query de alunos ordenando por nome:
+
+```sql
+-- Ordem por nome (ASC default)
+SELECT * FROM alunos ORDER BY nome;
+
+-- Ordem por nome ascendente
+SELECT * FROM alunos ORDER BY nome ASC;
+
+-- Ordem por nome descendente
+SELECT * FROM alunos ORDER BY nome DESC;
+
+-- Ordem por (coluna indice 1) descendente
+SELECT * FROM alunos ORDER BY 1 DESC;
+
+-- Ordem por múltiplas colunas (obedecendo a ordem, ordenar por nome, depois cpf e por último estado)
+SELECT * FROM alunos ORDER BY nome ASC, cpf DESC, estado ASC;
+```
