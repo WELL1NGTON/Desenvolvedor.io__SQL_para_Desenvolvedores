@@ -1,0 +1,4 @@
+sqlvolume/log/*
+!sqlvolume/log/.gitkeep
+sqlvolume/secrets/*
+!sqlvolume/secrets/.gitkeep
