@@ -33,7 +33,7 @@ Links:
 
 <!-- ## Certificado
 
-[![certificado udemy](images/10afe11fe5b7860c4cd9910c73bb0c18bd86b32a1caa9d01980eba815a0d3ecf.png)](https://desenvolvedor.io/certificado/beb797f4-0412-4eb8-ba2d-521fa0d20d4a)
+[![certificado desenvolvedor.io](images/10afe11fe5b7860c4cd9910c73bb0c18bd86b32a1caa9d01980eba815a0d3ecf.png)](https://desenvolvedor.io/certificado/beb797f4-0412-4eb8-ba2d-521fa0d20d4a)
 -->
 
 ## Course Progress / Progresso do curso
@@ -74,12 +74,12 @@ Links:
 
 ### Base de conhecimentos
 
-- [ ] Introdução (1:00)
-- [ ] O que é um índice? (4:00)
-- [ ] O que são constraints? (2:00)
-- [ ] O que é uma View? (3:00)
-- [ ] O que são Stored Procedures? (3:00)
-- [ ] O que são Functions? (4:00)
+- [x] Introdução (1:00)
+- [x] O que é um índice? (4:00)
+- [x] O que são constraints? (2:00)
+- [x] O que é uma View? (3:00)
+- [x] O que são Stored Procedures? (3:00)
+- [x] O que são Functions? (4:00)
 
 ### Cláusulas e Operadores
 
