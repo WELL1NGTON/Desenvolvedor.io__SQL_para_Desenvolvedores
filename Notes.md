@@ -313,3 +313,13 @@ SELECT * FROM alunos ORDER BY id OFFSET 2 ROWS;
 -- Query retorna apenas dois registros da tabela alunos, pulando os dois primeiros registros
 SELECT * FROM alunos ORDER BY id OFFSET 2 ROWS FETCH FIRST 2 ROWS ONLY;
 ```
+
+### Where
+
+```sql
+-- Select de alunos com nome "Rafael"
+SELECT * FROM alunos WHERE nome = 'Rafael';
+
+-- Select de alunos com id maior ou igual a 3
+SELECT * FROM alunos WHERE id >= 3;
+```
