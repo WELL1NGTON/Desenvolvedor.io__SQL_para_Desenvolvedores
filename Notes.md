@@ -287,3 +287,29 @@ SELECT * FROM alunos ORDER BY 1 DESC;
 -- Ordem por múltiplas colunas (obedecendo a ordem, ordenar por nome, depois cpf e por último estado)
 SELECT * FROM alunos ORDER BY nome ASC, cpf DESC, estado ASC;
 ```
+
+### Top/Fetch
+
+Limitar registros retornados da base de dados (TOP):
+
+```sql
+-- Query retorna apenas 4 primeiros registros
+SELECT TOP 4 * FROM alunos ORDER BY id;
+
+-- Query retorna apenas os 10% primeiros registros (retorna 1 registro nessa aula)
+SELECT TOP 10 PERCENT * FROM alunos ORDER BY id;
+
+-- Obs.: outros bancos de dados normalmente usam "LIMIT" ao invés de "TOP"
+-- Não funciona no SQL Server
+SELECT * FROM alunos ORDER BY id LIMIT 100;
+```
+
+Começar a exibir resultados ignorando uma quantidade de registros (OFSET):
+
+```sql
+-- Query retorna os registros da tabela alunos, pulando os dois primeiros registros
+SELECT * FROM alunos ORDER BY id OFFSET 2 ROWS;
+
+-- Query retorna apenas dois registros da tabela alunos, pulando os dois primeiros registros
+SELECT * FROM alunos ORDER BY id OFFSET 2 ROWS FETCH FIRST 2 ROWS ONLY;
+```
