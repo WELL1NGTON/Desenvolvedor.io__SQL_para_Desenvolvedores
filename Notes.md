@@ -258,3 +258,11 @@ Verificação dados cadastrados:
 ```sql
 SELECT * FROM categorias;
 ```
+
+### Distinct
+
+Query de cidades/estados sem dados duplicados:
+
+```sql
+SELECT DISTINCT cidade, estado FROM alunos;
+```
