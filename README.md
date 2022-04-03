@@ -86,7 +86,7 @@ Links:
 - [x] Introdução (1:00)
 - [x] Colocando a mão na massa (16:00)
 - [x] Distinct (4:00)
-- [ ] Order By (5:00)
+- [x] Order By (5:00)
 - [ ] Top/Fetch (9:00)
 - [ ] Where (4:00)
 - [ ] And/Or (5:00)
