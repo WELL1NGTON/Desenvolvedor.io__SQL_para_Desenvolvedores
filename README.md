@@ -83,8 +83,8 @@ Links:
 
 ### Cláusulas e Operadores
 
-- [ ] Introdução (1:00)
-- [ ] Colocando a mão na massa (16:00)
+- [x] Introdução (1:00)
+- [x] Colocando a mão na massa (16:00)
 - [ ] Distinct (4:00)
 - [ ] Order By (5:00)
 - [ ] Top/Fetch (9:00)
