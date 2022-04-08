@@ -90,7 +90,7 @@ Links:
 - [x] Top/Fetch (9:00)
 - [x] Where (4:00)
 - [x] And/Or (5:00)
-- [ ] Like (7:00)
+- [x] Like (7:00)
 - [ ] Max/Min (3:00)
 - [ ] Count/Sum (4:00)
 - [ ] Group By (4:00)
