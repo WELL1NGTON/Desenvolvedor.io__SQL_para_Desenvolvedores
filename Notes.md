@@ -333,3 +333,22 @@ SELECT * FROM alunos WHERE id >= 3 AND nome='Bruno';
 -- Select de alunos com nome "Bruno" ou "Heloysa" e com id maior ou igual a 3
 SELECT * FROM alunos WHERE id >= 3 AND (nome='Bruno' OR nome='Heloysa');
 ```
+
+### Like
+
+```sql
+-- Alunos que possuem o nome "Rafael"
+SELECT * FROM alunos WHERE nome LIKE 'Rafael';
+
+-- Alunos que o nome começa com "Ra"
+SELECT * FROM alunos WHERE nome LIKE 'Ra%';
+
+-- Alunos que o nome termina com "o"
+SELECT * FROM alunos WHERE nome LIKE '%o';
+
+-- Alunos que possuem o caractere "a" no nome
+SELECT * FROM alunos WHERE nome LIKE '%a%';
+
+-- Alunos que o nome começa com "R" e termina com "l"
+SELECT * FROM alunos WHERE nome LIKE 'R%l';
+```
