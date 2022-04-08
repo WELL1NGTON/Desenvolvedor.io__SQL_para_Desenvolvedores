@@ -17,7 +17,7 @@ E para parar:
 docker-compose down
 ```
 
-Obs.: caso exista algum problema ao inicializar o docker composer, tente executar o script `volume-to-sqlserver-user.sh` para que o docker possa acessar o volume de dados do SQL Server. Para adicionar commits git, é preciso voltar as permissões para o usuário atual, para isso execute `volume-to-current-user.sh`. 
+Obs.: caso exista algum problema ao inicializar o docker composer, tente executar o script `volume-to-sqlserver-user.sh` para que o docker possa acessar o volume de dados do SQL Server. Para adicionar commits git, é preciso voltar as permissões para o usuário atual, para isso execute `volume-to-current-user.sh`.
 
 ### Instalação do Azure Data Studio
 
@@ -322,4 +322,14 @@ SELECT * FROM alunos WHERE nome = 'Rafael';
 
 -- Select de alunos com id maior ou igual a 3
 SELECT * FROM alunos WHERE id >= 3;
+```
+
+### And/Or
+
+```sql
+-- Select de alunos com nome "Bruno" e id maior ou igual a 3
+SELECT * FROM alunos WHERE id >= 3 AND nome='Bruno';
+
+-- Select de alunos com nome "Bruno" ou "Heloysa" e com id maior ou igual a 3
+SELECT * FROM alunos WHERE id >= 3 AND (nome='Bruno' OR nome='Heloysa');
 ```
