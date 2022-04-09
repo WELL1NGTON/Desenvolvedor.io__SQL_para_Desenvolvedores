@@ -35,6 +35,7 @@
     - [Union/Union All](#unionunion-all)
   - [Transações](#transações)
     - [O que é uma transação?](#o-que-é-uma-transação)
+    - [Criando uma transação](#criando-uma-transação)
 
 ## Ambiente
 
@@ -591,3 +592,61 @@ Sequencia de Operações que são executadas na base de dados e que devem satisf
   Uma transação em andamento que ainda não foi confirmada deve permanecer totalmente isolada de outras operações, dessa forma o banco de dados garante que a transação não será interferida por nenhuma outra transação concorrente.
 - Durabilidade
   Basicamente é fazer com que os dados sejam gravados em seu banco de dados, depois desse passo mesmo que o serviço de banco de dados seja reinicializado, seus dados ainda estão disponíveis para você acessar.
+
+### Criando uma transação
+
+Rollback:
+
+```sql
+-- Select todos dados de categorias
+SELECT * FROM categorias;
+
+-- Transaction com ROLLBACK
+BEGIN TRANSACTION
+
+UPDATE categorias
+SET descricao=UPPER(descricao)
+WHERE id > 0
+GO
+
+DELETE categorias WHERE id = 4
+GO
+
+-- Dados aparentam alterados dentro da transação
+SELECT * FROM categorias;
+
+-- Desfaz as mudanças da transaction
+ROLLBACK
+
+-- Os dados estão inalterados após a transação por causa do ROLLBACK (como estavam antes da transação)
+SELECT * FROM categorias;
+```
+
+Observação: se a seção for fechada antes de um commit ou da transação ser finalizada, é executado um rollback.
+
+Commit:
+
+```sql
+-- Select todos dados de categorias
+SELECT * FROM categorias;
+
+-- Transaction com ROLLBACK
+BEGIN TRANSACTION
+
+UPDATE categorias
+SET descricao=UPPER(descricao)
+WHERE id > 0;
+GO
+
+DELETE categorias WHERE id = 4;
+GO
+
+-- Dados aparentam alterados dentro da transação
+SELECT * FROM categorias;
+
+-- Commit da transação
+COMMIT
+
+-- Os dados estão alterados após a transação por causa do COMMIT
+SELECT * FROM categorias;
+```
