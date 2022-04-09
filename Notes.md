@@ -457,10 +457,15 @@ SELECT * FROM categorias;
 SELECT * FROM cursos;
 
 -- Join de todos os registros da tabela cursos com as categorias (onde categoria_id em curso é igual ao id da categoria)
-SELECT * FROM cursos cr INNER JOIN categorias ca ON ca.id = cr.categoria_id;
+SELECT * FROM cursos cr
+INNER JOIN categorias ca
+ON ca.id = cr.categoria_id;
 
 -- Mesma query anterior porém apenas as colunas descrição (de curso e de categoria) e com alias para as colunas
-SELECT cr.descricao Curso, ca.descricao Categoria FROM cursos cr INNER JOIN categorias ca ON ca.id = cr.categoria_id;
+SELECT cr.descricao Curso, ca.descricao Categoria
+FROM cursos cr
+INNER JOIN categorias ca
+ON ca.id = cr.categoria_id;
 ```
 
 ### Left Join
@@ -482,3 +487,13 @@ ON ca.id = cr.categoria_id;
 ```
 
 Obs.: Differença entre `INNER JOIN` e `LEFT JOIN` é que o `INNER JOIN` você precisa ter dados em ambas as tabelas (ele apenas retorna registros que possuem uma relação entre as duas tabelas) enquanto que no `LEFT JOIN` você só precisa ter dados no "lado esquerdo" do join (categorias no exemplo).
+
+### Right Join
+
+```sql
+-- Mesma coisa que LEFT JOIN, porém prioridade para o "lado direito" do join (categorias nesse exemplo)
+SELECT cr.descricao Curso, ca.descricao Categoria
+FROM cursos cr
+RIGHT JOIN categorias ca
+ON ca.id = cr.categoria_id;
+```
