@@ -7,6 +7,27 @@ Course / Curso: [SQL para Desenvolvedores](https://desenvolvedor.io/curso-online
 
 > Domine todas as técnicas de bancos de dados que um desenvolvedor deve conhecer
 
+## Índice
+
+- [SQL para Desenvolvedores](#sql-para-desenvolvedores)
+  - [Índice](#índice)
+  - [Instructor / Instrutor](#instructor--instrutor)
+    - [Rafael Almeida • Microsoft MVP](#rafael-almeida--microsoft-mvp)
+  - [Course Progress / Progresso do curso](#course-progress--progresso-do-curso)
+    - [Introdução](#introdução)
+    - [Iniciando no mundo SQL](#iniciando-no-mundo-sql)
+    - [Ambiente](#ambiente)
+    - [Hands-On-SQL Básico](#hands-on-sql-básico)
+    - [Base de conhecimentos](#base-de-conhecimentos)
+    - [Cláusulas e Operadores](#cláusulas-e-operadores)
+    - [Joins](#joins)
+    - [Transações](#transações)
+    - [T-SQL](#t-sql)
+    - [Backup](#backup)
+    - [Tips & Tricks](#tips--tricks)
+    - [Encerramento](#encerramento)
+  - [Anotações](#anotações)
+
 ## Instructor / Instrutor
 
 ### [Rafael Almeida](https://desenvolvedor.io/instrutor/rafael-almeida) • Microsoft MVP
@@ -31,7 +52,8 @@ Links:
 - [GitHub](https://github.com/ralmsdeveloper/)
 - [Linkedin](https://www.linkedin.com/in/ralmsdeveloper/)
 
-<!-- ## Certificado
+<!--
+## Certificado
 
 [![certificado desenvolvedor.io](images/10afe11fe5b7860c4cd9910c73bb0c18bd86b32a1caa9d01980eba815a0d3ecf.png)](https://desenvolvedor.io/certificado/beb797f4-0412-4eb8-ba2d-521fa0d20d4a)
 -->

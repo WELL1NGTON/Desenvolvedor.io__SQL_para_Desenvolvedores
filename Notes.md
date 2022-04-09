@@ -1,5 +1,41 @@
 # Anotações
 
+## Índice
+
+- [Anotações](#anotações)
+  - [Índice](#índice)
+  - [Ambiente](#ambiente)
+    - [Instalação do SQL Server (Docker)](#instalação-do-sql-server-docker)
+    - [Instalação do Azure Data Studio](#instalação-do-azure-data-studio)
+  - [Hands-On-SQL Básico](#hands-on-sql-básico)
+    - [Criando uma tabela](#criando-uma-tabela)
+    - [Inserindo registros](#inserindo-registros)
+    - [Consultando registros](#consultando-registros)
+    - [Atualizando registros](#atualizando-registros)
+    - [Excluindo registros](#excluindo-registros)
+  - [Cláusulas e Operadores](#cláusulas-e-operadores)
+    - [Colocando a mão na massa](#colocando-a-mão-na-massa)
+    - [Distinct](#distinct)
+    - [Order By](#order-by)
+    - [Top/Fetch](#topfetch)
+    - [Where](#where)
+    - [And/Or](#andor)
+    - [Like](#like)
+    - [Max/Min](#maxmin)
+    - [Count/Sum](#countsum)
+    - [Group By](#group-by)
+    - [Having](#having)
+    - [Operador In](#operador-in)
+    - [Operador Between](#operador-between)
+  - [Joins](#joins)
+    - [Inner Join](#inner-join)
+    - [Left Join](#left-join)
+    - [Right Join](#right-join)
+    - [Full Join](#full-join)
+    - [Union/Union All](#unionunion-all)
+  - [Transações](#transações)
+    - [O que é uma transação?](#o-que-é-uma-transação)
+
 ## Ambiente
 
 ### Instalação do SQL Server (Docker)
@@ -535,3 +571,23 @@ SELECT 'Valor dinamico'
 UNION ALL
 SELECT 'Valor dinamico';
 ```
+
+## Transações
+
+### O que é uma transação?
+
+Sequencia de Operações que são executadas na base de dados e que devem satisfazer as propriedades do ACID.
+
+| A         | C           | I         | D          |
+|-----------|-------------|-----------|------------|
+| Atomicity | Consistency | Isolation | Durability |
+
+- Atomicidade
+  "Faz tudo ou não faz nada!"
+  Em uma transação que envolve duas ou mais partes de informações, ou a transação será executada totalmente ou não será executada.
+- Consistencia
+  Garantir que o banco de dados esteja consistente antes e depois de uma transação, a transação deve sempre ser finalizada em um estado consistente.
+- Isolamento
+  Uma transação em andamento que ainda não foi confirmada deve permanecer totalmente isolada de outras operações, dessa forma o banco de dados garante que a transação não será interferida por nenhuma outra transação concorrente.
+- Durabilidade
+  Basicamente é fazer com que os dados sejam gravados em seu banco de dados, depois desse passo mesmo que o serviço de banco de dados seja reinicializado, seus dados ainda estão disponíveis para você acessar.
