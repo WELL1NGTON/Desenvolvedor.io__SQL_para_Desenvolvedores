@@ -400,3 +400,10 @@ SELECT MIN(id) FROM alunos;
 -- Registro de aluno que possui o maior id
 SELECT * FROM alunos WHERE id = (SELECT MAX(id) FROM alunos);
 ```
+
+### Count/Sum
+
+```sql
+-- Quantidade de registros na tabela cursos, total de horas somado e soma de valores
+SELECT COUNT(*), SUM(total_horas), SUM(valor) FROM cursos;
+```
