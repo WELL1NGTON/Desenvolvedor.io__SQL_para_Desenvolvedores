@@ -417,3 +417,13 @@ SELECT cidade, estado FROM alunos GROUP BY cidade, estado;
 -- Igual anterior + função de agregação Count (quantidade de registros por cidade/estado)
 SELECT cidade, estado, COUNT(*) FROM alunos GROUP BY cidade, estado;
 ```
+
+### Having
+
+```sql
+-- Cidades/estados com mais de um aluno
+SELECT cidade, estado, COUNT(*) Total
+FROM alunos 
+GROUP BY cidade, estado
+HAVING COUNT(*) > 1;
+```
