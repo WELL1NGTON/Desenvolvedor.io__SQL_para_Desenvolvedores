@@ -444,3 +444,21 @@ SELECT * FROM alunos WHERE id IN (SELECT id FROM alunos);
 -- Alunos onde o id está entre os valores 2 e 4 (inclusivamente)
 SELECT * FROM alunos WHERE id BETWEEN 2 AND 4;
 ```
+
+## Joins
+
+### Inner Join
+
+```sql
+-- Todos os registros da tabela categorias
+SELECT * FROM categorias;
+
+-- Todos os registros da tabela cursos
+SELECT * FROM cursos;
+
+-- Join de todos os registros da tabela cursos com as categorias (onde categoria_id em curso é igual ao id da categoria)
+SELECT * FROM cursos cr INNER JOIN categorias ca ON ca.id = cr.categoria_id;
+
+-- Mesma query anterior porém apenas as colunas descrição (de curso e de categoria) e com alias para as colunas
+SELECT cr.descricao Curso, ca.descricao Categoria FROM cursos cr INNER JOIN categorias ca ON ca.id = cr.categoria_id;
+```
