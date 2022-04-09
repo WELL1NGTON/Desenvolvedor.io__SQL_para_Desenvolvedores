@@ -134,7 +134,7 @@ Links:
 - [x] Introdução (1:00)
 - [x] O que é uma transação? (5:00)
 - [x] Criando uma transação (12:00)
-- [ ] Save Point (6:00)
+- [x] Save Point (6:00)
 
 ### T-SQL
 
