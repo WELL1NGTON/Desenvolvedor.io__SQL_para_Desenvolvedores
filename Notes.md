@@ -427,3 +427,13 @@ FROM alunos
 GROUP BY cidade, estado
 HAVING COUNT(*) > 1;
 ```
+
+### In
+
+```sql
+-- Alunos onde o id está entre os valores no array [2, 4]
+SELECT * FROM alunos WHERE id IN (2,4);
+
+-- Alunos onde o id está entre os valores resultados do subselect (SELECT id FROM alunos)
+SELECT * FROM alunos WHERE id IN (SELECT id FROM alunos);
+```
