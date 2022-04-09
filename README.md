@@ -96,7 +96,7 @@ Links:
 - [x] Group By (4:00)
 - [x] Having (3:00)
 - [x] Operador In (3:00)
-- [ ] Operador Between (2:00)
+- [x] Operador Between (2:00)
 
 ### Joins
 
