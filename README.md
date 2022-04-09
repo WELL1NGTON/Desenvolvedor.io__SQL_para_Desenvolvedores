@@ -102,7 +102,7 @@ Links:
 
 - [x] Introdução (1:00)
 - [x] Inner Join (5:00)
-- [ ] Left Join (5:00)
+- [x] Left Join (5:00)
 - [ ] Right Join (3:00)
 - [ ] Full Join (4:00)
 - [ ] Union/Union All (5:00)
