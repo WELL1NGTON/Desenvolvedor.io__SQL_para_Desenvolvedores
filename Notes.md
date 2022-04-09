@@ -507,3 +507,31 @@ FROM cursos cr
 FULL JOIN categorias ca
 ON ca.id = (cr.categoria_id+4);
 ```
+
+### Union/Union All
+
+```sql
+-- "Merge" dos registros das duas consultas (tabela cursos onde id é 1 e tabela cursos onde id é 2)
+SELECT * FROM cursos WHERE id = 1
+UNION
+SELECT * FROM cursos WHERE id = 2;
+
+-- Union dos registros: descrição de curso id 1, descricao de categria id 2, "string" "Valor dinamico" e "string" "Valor dinamico"
+-- Observação só serão retornados 3 resutlados porque o último valor está duplicado
+SELECT descricao FROM cursos WHERE id = 1
+UNION
+SELECT descricao FROM categorias WHERE id = 2
+UNION
+SELECT 'Valor dinamico'
+UNION
+SELECT 'Valor dinamico';
+
+-- Mesmo que o anterior, porém com 4 resultados porque UNION ALL retorna duplicados
+SELECT descricao FROM cursos WHERE id = 1
+UNION ALL
+SELECT descricao FROM categorias WHERE id = 2
+UNION ALL
+SELECT 'Valor dinamico'
+UNION ALL
+SELECT 'Valor dinamico';
+```
