@@ -259,6 +259,41 @@ Verificação dados cadastrados:
 SELECT * FROM categorias;
 ```
 
+```mermaid
+erDiagram
+  cursos ||--o{ alunos_cursos : ""
+  cursos {
+    int id
+    int categoria_id
+    string descricao
+    int total_horas
+    decimal valor
+    datetime cadastrado_em
+    bit ativo
+  }
+  cursos }o--|| categorias : ""
+  categorias {
+    int id
+    string descricao
+    datetime cadastrado_em
+  }
+  alunos ||--o{ alunos_cursos : ""
+  alunos {
+    int id
+    string nome
+    string cpf
+    string cidade
+    string estado
+    datetime data_nascimento
+    bit ativo
+  }
+  alunos_cursos {
+    int aluno_id
+    int curso_id
+    datetime cadastrado_em
+  }
+```
+
 ### Distinct
 
 Query de cidades/estados sem dados duplicados:
