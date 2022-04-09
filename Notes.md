@@ -497,3 +497,13 @@ FROM cursos cr
 RIGHT JOIN categorias ca
 ON ca.id = cr.categoria_id;
 ```
+
+### Full Join
+
+```sql
+-- Exemplo de join completo simulando uma situação em que ambos os lados não vão ter registros que batem os dados ((categoria_id+4) = ca.id nunca será verdadeiro porque só tem 4 categorias)
+SELECT cr.descricao Curso, ca.descricao Categoria
+FROM cursos cr
+FULL JOIN categorias ca
+ON ca.id = (cr.categoria_id+4);
+```
