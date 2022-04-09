@@ -93,7 +93,7 @@ Links:
 - [x] Like (7:00)
 - [x] Max/Min (3:00)
 - [x] Count/Sum (4:00)
-- [ ] Group By (4:00)
+- [x] Group By (4:00)
 - [ ] Having (3:00)
 - [ ] Operador In (3:00)
 - [ ] Operador Between (2:00)

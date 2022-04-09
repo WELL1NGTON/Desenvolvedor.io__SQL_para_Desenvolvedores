@@ -407,3 +407,13 @@ SELECT * FROM alunos WHERE id = (SELECT MAX(id) FROM alunos);
 -- Quantidade de registros na tabela cursos, total de horas somado e soma de valores
 SELECT COUNT(*), SUM(total_horas), SUM(valor) FROM cursos;
 ```
+
+### Group By
+
+```sql
+-- Cidades/estados sem items duplicados
+SELECT cidade, estado FROM alunos GROUP BY cidade, estado;
+
+-- Igual anterior + função de agregação Count (quantidade de registros por cidade/estado)
+SELECT cidade, estado, COUNT(*) FROM alunos GROUP BY cidade, estado;
+```
