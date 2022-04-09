@@ -352,3 +352,16 @@ SELECT * FROM alunos WHERE nome LIKE '%a%';
 -- Alunos que o nome começa com "R" e termina com "l"
 SELECT * FROM alunos WHERE nome LIKE 'R%l';
 ```
+
+### Max/Min
+
+```sql
+-- Maior id da tabela alunos
+SELECT MAX(id) FROM alunos;
+
+-- Menor id da tabela alunos
+SELECT MIN(id) FROM alunos;
+
+-- Registro de aluno que possui o maior id
+SELECT * FROM alunos WHERE id = (SELECT MAX(id) FROM alunos);
+```

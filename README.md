@@ -91,7 +91,7 @@ Links:
 - [x] Where (4:00)
 - [x] And/Or (5:00)
 - [x] Like (7:00)
-- [ ] Max/Min (3:00)
+- [x] Max/Min (3:00)
 - [ ] Count/Sum (4:00)
 - [ ] Group By (4:00)
 - [ ] Having (3:00)
