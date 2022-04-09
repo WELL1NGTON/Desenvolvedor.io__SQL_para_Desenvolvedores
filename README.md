@@ -100,8 +100,8 @@ Links:
 
 ### Joins
 
-- [ ] Introdução (1:00)
-- [ ] Inner Join (5:00)
+- [x] Introdução (1:00)
+- [x] Inner Join (5:00)
 - [ ] Left Join (5:00)
 - [ ] Right Join (3:00)
 - [ ] Full Join (4:00)
