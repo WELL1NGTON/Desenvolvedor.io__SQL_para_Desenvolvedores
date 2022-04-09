@@ -36,6 +36,7 @@
   - [Transações](#transações)
     - [O que é uma transação?](#o-que-é-uma-transação)
     - [Criando uma transação](#criando-uma-transação)
+    - [Save Point](#save-point)
 
 ## Ambiente
 
@@ -648,5 +649,41 @@ SELECT * FROM categorias;
 COMMIT
 
 -- Os dados estão alterados após a transação por causa do COMMIT
+SELECT * FROM categorias;
+```
+
+### Save Point
+
+```sql
+-- Select todos dados de categorias
+SELECT * FROM categorias;
+
+BEGIN TRANSACTION
+
+INSERT INTO categorias(descricao, cadastrado_em)
+VALUES ('Categoria Nova 1', GETDATE());
+INSERT INTO categorias(descricao, cadastrado_em)
+VALUES ('Categoria Nova 2', GETDATE());
+GO
+
+-- Select mostra que novos dados foram incluídos
+SELECT * FROM categorias;
+
+SAVE TRANSACTION AtualizacaoPoint
+
+UPDATE categorias
+SET descricao = 'Aplicacao WEB'
+WHERE descricao='WEB';
+GO
+
+-- Select mostra que "WEB" foi alterado para "Aplicacao WEB"
+SELECT * FROM categorias;
+
+-- Desfaz apenas as mudanças após o savepoint
+ROLLBACK TRANSACTION AtualizacaoPoint
+
+COMMIT
+
+-- O resultado final é apenas a inserção das duas novas categorias sem alterar a categoria com descrição "WEB"
 SELECT * FROM categorias;
 ```
