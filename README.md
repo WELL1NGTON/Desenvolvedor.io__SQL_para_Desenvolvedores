@@ -105,7 +105,7 @@ Links:
 - [x] Left Join (5:00)
 - [x] Right Join (3:00)
 - [x] Full Join (4:00)
-- [ ] Union/Union All (5:00)
+- [x] Union/Union All (5:00)
 
 ### Transações
 
