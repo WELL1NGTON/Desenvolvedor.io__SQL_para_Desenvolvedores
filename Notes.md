@@ -37,6 +37,10 @@
     - [O que é uma transação?](#o-que-é-uma-transação)
     - [Criando uma transação](#criando-uma-transação)
     - [Save Point](#save-point)
+  - [T-SQL](#t-sql)
+    - [Conhecendo as funções](#conhecendo-as-funções)
+      - [Links (documentação Microsoft)](#links-documentação-microsoft)
+      - [Exemplos de funções](#exemplos-de-funções)
 
 ## Ambiente
 
@@ -686,4 +690,103 @@ COMMIT
 
 -- O resultado final é apenas a inserção das duas novas categorias sem alterar a categoria com descrição "WEB"
 SELECT * FROM categorias;
+```
+
+## T-SQL
+
+### Conhecendo as funções
+
+#### Links (documentação Microsoft)
+
+- pt_BR: [Quais são as funções do banco de dados SQL?](https://docs.microsoft.com/pt-br/sql/t-sql/functions/functions)
+- en_US: [What are the SQL database functions?](https://docs.microsoft.com/en-us/sql/t-sql/functions/functions)
+
+#### Exemplos de funções
+
+[LEFT](https://docs.microsoft.com/pt-br/sql/t-sql/functions/left-transact-sql):
+
+```sql
+-- Apenas os 4 primeiros caracteres de descrição
+SELECT LEFT(descricao, 4), descricao FROM categorias;
+```
+
+[RIGHT](https://docs.microsoft.com/pt-br/sql/t-sql/functions/right-transact-sql):
+
+```sql
+-- Apenas os 4 últimos caracteres de descrição
+SELECT RIGHT(descricao, 4), descricao FROM categorias;
+```
+
+[SUBSTRING](https://docs.microsoft.com/pt-br/sql/t-sql/functions/substring-transact-sql):
+
+```sql
+-- A partir do segundo caractere, pega 5 caracteres de descrição
+SELECT SUBSTRING(descricao, 2, 5), descricao FROM categorias;
+```
+
+[CONCAT](https://docs.microsoft.com/pt-br/sql/t-sql/functions/concat-transact-sql?view=sql-server-ver15):
+
+```sql
+-- Resultado: "RAFAEL  ALMEIDA"
+SELECT 'RAFAEL ' + ' ALMEIDA';
+
+-- Resultado: NULL (qualquer operação + NULL sempre será NULL)
+SELECT 'RAFAEL ' + ' ALMEIDA' + NULL;
+
+-- Resultado: "RAFAEL ALMEIDA SANTOS"
+SELECT CONCAT('RAFAEL', ' ALMEIDA', ' SANTOS');
+
+-- Colunas descricao de categorias concatenadas com a palavra " TESTE"
+SELECT CONCAT(descricao, ' TESTE') FROM categorias;
+```
+
+[ISNULL](https://docs.microsoft.com/pt-br/sql/t-sql/functions/isnull-transact-sql?view=sql-server-ver15):
+
+```sql
+-- Retorna o valor da direita de o da esquerda for nulo
+SELECT ISNULL(NULL, 'DEFAULT');
+
+-- O campo descricao nunca será nulo nessa query
+SELECT ISNULL(descricao, 'SEM DESCRICAO') FROM categorias;
+```
+
+[COALESCE](https://docs.microsoft.com/pt-br/sql/t-sql/language-elements/coalesce-transact-sql?view=sql-server-ver15):
+
+```sql
+-- Retorna o primeiro valor não nulo. "PRIMEIRO" nesse caso
+SELECT COALESCE(null,null,null, 'PRIMEIRO', 'SEGUNDO');
+
+-- Exemplo com cálculo
+SELECT 2 * COALESCE(NULL, 1);
+
+-- Exemplo hipotético vários telefones, retorna o primeiro não nulo
+-- SELECT COALESCE(TEL1, TEL2, TEL3) FROM ...
+```
+
+[IIF](https://docs.microsoft.com/pt-br/sql/t-sql/functions/logical-functions-iif-transact-sql?view=sql-server-ver15):
+
+```sql
+-- Se o primeiro parametro for verdadeiro, retorna o segundo, senão retorna o terceiro
+SELECT IIF(1 > 0, 'MAIOR QUE ZERO', 'MENOR QUE ZERO');
+SELECT IIF(-1 > 0, 'MAIOR QUE ZERO', 'MENOR QUE ZERO');
+
+-- Se o tamanho da descrição for maior que 5, retorna "MAIOR QUE 5", senão rentorna "MENOR QUE 5"
+SELECT IIF(LEN(descricao) > 5, 'MAIOR QUE 5', 'MENOR QUE 5') FROM categorias;
+```
+
+[GETDATE](https://docs.microsoft.com/pt-br/sql/t-sql/functions/getdate-transact-sql?view=sql-server-ver15)
+
+```sql
+-- Retorna data e hora
+SELECT GETDATE();
+```
+
+[CAST e CONVERT](https://docs.microsoft.com/pt-br/sql/t-sql/functions/cast-and-convert-transact-sql?view=sql-server-ver15):
+
+```sql
+-- Pega a data e hora com o GETDATE e converte apenas para DATA
+SELECT CAST(GETDATE() AS DATE);
+
+-- Pega a data e hora com o GETDATE e converte apenas para HORA
+SELECT CAST(GETDATE() AS TIME);
 ```
