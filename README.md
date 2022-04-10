@@ -13,6 +13,7 @@ Course / Curso: [SQL para Desenvolvedores](https://desenvolvedor.io/curso-online
   - [Índice](#índice)
   - [Instructor / Instrutor](#instructor--instrutor)
     - [Rafael Almeida • Microsoft MVP](#rafael-almeida--microsoft-mvp)
+  - [Certificado](#certificado)
   - [Course Progress / Progresso do curso](#course-progress--progresso-do-curso)
     - [Introdução](#introdução)
     - [Iniciando no mundo SQL](#iniciando-no-mundo-sql)
@@ -52,11 +53,9 @@ Links:
 - [GitHub](https://github.com/ralmsdeveloper/)
 - [Linkedin](https://www.linkedin.com/in/ralmsdeveloper/)
 
-<!--
 ## Certificado
 
-[![certificado desenvolvedor.io](images/10afe11fe5b7860c4cd9910c73bb0c18bd86b32a1caa9d01980eba815a0d3ecf.png)](https://desenvolvedor.io/certificado/beb797f4-0412-4eb8-ba2d-521fa0d20d4a)
--->
+[![certificado desenvolvedor.io](images/8ae389ef6bc001364bdad40201113f92151691d4edd3e668d3b07ee98553c256.png)](https://desenvolvedor.io/certificados/8a667b4a-8668-4d33-87ba-6a499abd389e/validar)
 
 ## Course Progress / Progresso do curso
 
@@ -167,7 +166,7 @@ Links:
 
 ### Encerramento
 
-- [ ] Agradecimentos (1:00)
+- [x] Agradecimentos (1:00)
 
 ## Anotações
 
