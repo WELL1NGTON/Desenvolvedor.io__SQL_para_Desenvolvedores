@@ -48,8 +48,11 @@
     - [Criando um campo novo](#criando-um-campo-novo)
     - [Removendo coluna](#removendo-coluna)
     - [Renomeando objetos](#renomeando-objetos)
+  - [Backup](#backup)
     - [Gerando backup](#gerando-backup)
     - [Restaurando backup](#restaurando-backup)
+  - [Tips & Tricks](#tips--tricks)
+    - [SQL Server Profiler](#sql-server-profiler)
 
 ## Ambiente
 
@@ -1083,6 +1086,8 @@ Renomeando tabela:
 EXECUTE sp_rename 'dbo.TabelaTeste', 'TabelaAlterada';
 ```
 
+## Backup
+
 ### Gerando backup
 
 Gerando backup da tabela na pasta padrão do container docker:  
@@ -1114,3 +1119,31 @@ RESTORE DATABASE DesenvolvedorIO
 FROM DISK = '/var/opt/mssql/data/AulaBackup.bak'
 WITH REPLACE;
 ```
+
+## Tips & Tricks
+
+### SQL Server Profiler
+
+O "SQL Server Profiler" vem junto com a instalação do [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/pt-br/sql/ssms/download-sql-server-management-studio-ssms).
+
+Como estou no linux irei utilizar apenas algumas imagens do profiler:
+
+Vai ser utilizado apenas New Trace:
+
+![New Trace](./images/SQL-Server-Profiler-01.png)
+
+Ao clicar em New Trace, aparece a janela para se conectar ao banco:
+
+![Conectando](images/SQL-Server-Profiler-02.png)
+
+Propriedades para o Trace:
+
+![Properties - General](images/SQL-Server-Profiler-03.png)
+
+![Properties - Events Selection](images/SQL-Server-Profiler-04.png)
+
+Monitoria (executando comando):
+
+![Comando executado](images/SQL-Server-Profiler-05.png)
+
+![Comando executado 2](images/SQL-Server-Profiler-06.png)
