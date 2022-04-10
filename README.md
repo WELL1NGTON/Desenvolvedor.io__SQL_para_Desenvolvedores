@@ -163,7 +163,7 @@ Links:
 - [x] Usando corretamente o índice (6:00)
 - [x] Desfragmentando índices (5:00)
 - [x] Contador de registros eficiente (9:00)
-- [ ] CTE-Common Table Expression (11:00)
+- [x] CTE-Common Table Expression (11:00)
 
 ### Encerramento
 
