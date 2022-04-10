@@ -140,7 +140,7 @@ Links:
 
 - [x] Introdução (1:00)
 - [x] Conhecendo as funções (17:00)
-- [ ] Criando funções (10:00)
+- [x] Criando funções (10:00)
 - [ ] Criando uma Stored Procedure (9:00)
 - [ ] Criando uma View (7:00)
 - [ ] Criando sequências (7:00)
