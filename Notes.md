@@ -43,6 +43,7 @@
       - [Exemplos de funções](#exemplos-de-funções)
     - [Criando funções](#criando-funções)
     - [Criando uma Stored Procedure](#criando-uma-stored-procedure)
+    - [Criando uma View](#criando-uma-view)
 
 ## Ambiente
 
@@ -913,4 +914,53 @@ Utilizando a procedure:
 
 ```sql
 EXECUTE dbo.PersistirDadosEmCategorias @descricao=NULL;
+```
+
+### Criando uma View
+
+Criando a view vwCursos:
+
+```sql
+CREATE VIEW vwCursos
+AS
+SELECT c.descricao, ca.descricao categoria
+FROM cursos c
+INNER JOIN categorias ca
+ON c.categoria_id=ca.id
+```
+
+Selects na view:
+
+```sql
+-- Select simples
+SELECT * FROM vwCursos;
+
+-- Select com where
+SELECT * FROM vwCursos WHERE descricao='EF Core';
+```
+
+Dropando a view:
+
+```sql
+DROP VIEW vwCursos;
+```
+
+Alterando a view:
+
+```sql
+-- Recriando a view
+CREATE VIEW vwCursos
+AS
+SELECT c.descricao, ca.descricao categoria
+FROM cursos c
+INNER JOIN categorias ca
+ON c.categoria_id=ca.id
+
+-- Alterando a view
+ALTER VIEW vwCursos
+AS
+SELECT c.descricao, ca.descricao categoria, c.cadastrado_em
+FROM cursos c
+INNER JOIN categorias ca
+ON c.categoria_id=ca.id
 ```
