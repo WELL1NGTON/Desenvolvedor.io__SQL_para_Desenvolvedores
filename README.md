@@ -138,8 +138,8 @@ Links:
 
 ### T-SQL
 
-- [ ] Introdução (1:00)
-- [ ] Conhecendo as funções (17:00)
+- [x] Introdução (1:00)
+- [x] Conhecendo as funções (17:00)
 - [ ] Criando funções (10:00)
 - [ ] Criando uma Stored Procedure (9:00)
 - [ ] Criando uma View (7:00)
