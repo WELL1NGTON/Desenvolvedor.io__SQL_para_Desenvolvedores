@@ -145,7 +145,7 @@ Links:
 - [x] Criando uma View (7:00)
 - [x] Criando sequências (7:00)
 - [x] Criando um campo novo (3:00)
-- [ ] Removendo coluna de uma tabela (3:00)
+- [x] Removendo coluna de uma tabela (3:00)
 - [ ] Renomeando objetos (4:00)
 
 ### Backup
