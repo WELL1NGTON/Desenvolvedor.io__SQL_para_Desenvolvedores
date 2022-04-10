@@ -55,6 +55,7 @@
     - [SQL Server Profiler](#sql-server-profiler)
     - [Hints SQL](#hints-sql)
     - [Plano de execução](#plano-de-execução)
+    - [Usando corretamente o índice](#usando-corretamente-o-índice)
 
 ## Ambiente
 
@@ -1255,3 +1256,21 @@ Agora a "Seta" está mais fina e o tipo mudo de Table Scan para Index Seek, o qu
 ![Index Seek](images/Plano-De-Execucao-06.png)
 
 ![Uma linha lida](images/Plano-De-Execucao-07.png)
+
+### Usando corretamente o índice
+
+Procure evitar usar funções nas clásulas para filtrar dados.
+
+O execution plan indica que na query abaixo foi executado um "Table Scan":
+
+```sql
+SELECT descricao FROM Tabela_Teste Where LEFT(descricao,16)='DESCRICAO 900000';
+```
+
+A query abaixo utiliza o índice corretamente (Index Seek), tem o mesmo resultado da query anterior e é mais performática:
+
+```sql
+SELECT descricao FROM Tabela_Teste Where descricao LIKE 'DESCRICAO 900000%';
+```
+
+![Comparativo Execution Plan](images/Usando-corretamente-o-indice-01.png)

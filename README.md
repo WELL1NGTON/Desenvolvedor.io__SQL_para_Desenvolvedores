@@ -160,7 +160,7 @@ Links:
 - [x] SQL Server Profiler (10:00)
 - [x] Hint NoLOCK (6:00)
 - [x] Plano de execução (10:00)
-- [ ] Usando corretamente o índice (6:00)
+- [x] Usando corretamente o índice (6:00)
 - [ ] Desfragmentando índices (5:00)
 - [ ] Contador de registros eficiente (9:00)
 - [ ] CTE-Common Table Expression (11:00)
