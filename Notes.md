@@ -42,6 +42,7 @@
       - [Links (documentação Microsoft)](#links-documentação-microsoft)
       - [Exemplos de funções](#exemplos-de-funções)
     - [Criando funções](#criando-funções)
+    - [Criando uma Stored Procedure](#criando-uma-stored-procedure)
 
 ## Ambiente
 
@@ -846,4 +847,70 @@ Utilizando a função:
 
 ```sql
 SELECT * from dbo.GetCategoriaById(1);
+```
+
+### Criando uma Stored Procedure
+
+Criando a procedure PesquisarCategoriaPorId:
+
+```sql
+CREATE PROCEDURE PesquisarCategoriaPorId(@id INT)
+AS
+BEGIN
+  SELECT * FROM categorias WHERE id = @id;
+END
+```
+
+Utilizando a procedure:
+
+```sql
+-- Exemplo apenas com valor do parametro
+EXECUTE dbo.PesquisarCategoriaPorId 1;
+
+-- Exemplo informando o nome e valor do parametro
+EXECUTE dbo.PesquisarCategoriaPorId @id=1;
+
+-- Exemplo casa haja multiplos parametros
+-- EXECUTE dbo.PesquisarCategoriaPorId @id=1, @novo=222;
+```
+
+Criando a procedure PersistirDadosEmCategorias:
+
+```sql
+CREATE PROCEDURE PersistirDadosEmCategorias(@descricao VARCHAR(255))
+AS
+BEGIN
+  INSERT INTO categorias (descricao, cadastrado_em) VALUES (@descricao, GETDATE());
+END
+```
+
+Utilizando a procedure:
+
+```sql
+EXECUTE dbo.PersistirDadosEmCategorias @descricao='Categoria Procedure';
+```
+
+Refazendo a procedure PersistirDadosEmCategorias com validação de dados:
+
+```sql
+-- Removendo a procedure
+DROP PROCEDURE dbo.PersistirDadosEmCategorias;
+
+-- Criando a procedure novamente
+CREATE PROCEDURE PersistirDadosEmCategorias(@descricao VARCHAR(255))
+AS
+BEGIN
+  IF(@descricao IS NULL)
+  BEGIN
+    RAISERROR('Descrição não é válida', 16, 1);
+    RETURN
+  END
+  INSERT INTO categorias (descricao, cadastrado_em) VALUES (@descricao, GETDATE());
+END
+```
+
+Utilizando a procedure:
+
+```sql
+EXECUTE dbo.PersistirDadosEmCategorias @descricao=NULL;
 ```
