@@ -54,6 +54,7 @@
   - [Tips & Tricks](#tips--tricks)
     - [SQL Server Profiler](#sql-server-profiler)
     - [Hints SQL](#hints-sql)
+    - [Plano de execução](#plano-de-execução)
 
 ## Ambiente
 
@@ -1183,3 +1184,74 @@ ROLLBACK
 ```
 
 Observação: os dados da query com nolock não refletem os dados que realmente ficaram no banco nesse exemplo. O NOLOCK é conhecido como uma consulta suja, ele retorna todos os registros, mesmo os que estão dentro de uma transaction que ainda não foi finalizada, podendo retornar dados que foram deletados, estão sendo modificados, etc...
+
+### Plano de execução
+
+Será utilizado o "SQL Server Profiler" vem junto com a instalação do [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/pt-br/sql/ssms/download-sql-server-management-studio-ssms) nessa aula... :(.
+
+Script persistir 1 000 000 registros para teste.
+
+```sql
+use DesenvolvedorIO;
+
+CREATE TABLE Tabela_Teste
+(
+  id INT,
+  descricao varchar(80)
+)
+
+DECLARE @id INT = 1
+DECLARE @p1 INT,@p2 INT,@p3 INT,@p4 INT
+WHILE @id <= 200000
+BEGIN 
+  SET @p1=@id+200000
+  SET @p2=@id+400000
+  SET @p3=@id+600000
+  SET @p4=@id+800000
+  INSERT INTO Tabela_Teste(id, descricao) 
+  VALUES (@id,'Descricao '+cast(@id as varchar(7))),
+         (@p1,'Descricao '+cast(@p1 as varchar(7))),
+         (@p2,'Descricao '+cast(@p2 as varchar(7))),
+         (@p3,'Descricao '+cast(@p3 as varchar(7))),
+         (@p4,'Descricao '+cast(@p4 as varchar(7)));
+  SET @id = @id+1
+END 
+```
+
+![Incluir plano de execução](images/Plano-De-Execucao-01.png)
+
+![Incluir plano de execução](images/Plano-De-Execucao-02.png)
+
+```sql
+use DesenvolvedorIO;
+
+SELECT descricao FROM Tabela_Teste WHERE descricao='DESCRICAO 900000';
+```
+
+![Nova aba abaixo](images/Plano-De-Execucao-03.png)
+
+Table Scan indica que ele teve que ir percorrendo a tabela para encontrar o registro e tentou encontrar o que atendesse o critério.
+
+![Table Scan](images/Plano-De-Execucao-04.png)
+
+Custo de CPU elevado:
+
+![Custo de CPU](images/Plano-De-Execucao-05.png)
+
+Criando índice para a consulta:
+
+```sql
+use DesenvolvedorIO;
+
+-- Cria índice
+CREATE INDEX idx_tabela_teste_descricao ON Tabela_Teste(descricao);
+
+-- Novamente executar o select verificando o plano de execução
+SELECT descricao FROM Tabela_Teste WHERE descricao='DESCRICAO 900000';
+```
+
+Agora a "Seta" está mais fina e o tipo mudo de Table Scan para Index Seek, o que indica que ele não precisou percorrer todos os registros para encontrar o que atendesse o critério, sendo assim muito mais otimizada.
+
+![Index Seek](images/Plano-De-Execucao-06.png)
+
+![Uma linha lida](images/Plano-De-Execucao-07.png)
