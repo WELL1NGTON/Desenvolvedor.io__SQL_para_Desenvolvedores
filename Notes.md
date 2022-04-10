@@ -41,6 +41,7 @@
     - [Conhecendo as funções](#conhecendo-as-funções)
       - [Links (documentação Microsoft)](#links-documentação-microsoft)
       - [Exemplos de funções](#exemplos-de-funções)
+    - [Criando funções](#criando-funções)
 
 ## Ambiente
 
@@ -789,4 +790,60 @@ SELECT CAST(GETDATE() AS DATE);
 
 -- Pega a data e hora com o GETDATE e converte apenas para HORA
 SELECT CAST(GETDATE() AS TIME);
+```
+
+### Criando funções
+
+Criando a função Mascarar:
+
+```sql
+CREATE FUNCTION Mascarar(@data VARCHAR(255), @quantidadeCaracteres INT)
+RETURNS VARCHAR(255)
+AS
+BEGIN
+  RETURN LEFT(@data, @quantidadeCaracteres) + '**** ****';
+END
+```
+
+Utilizando a função:
+
+```sql
+-- Resultado: "RAFA**** ****"
+SELECT dbo.Mascarar('RAFAEL ALMEIDA', 4);
+
+-- Descrição com "mascara"
+SELECT dbo.Mascarar(descricao, 4) FROM categorias;
+```
+
+Criando a função ContarRegistros:  
+Obs.: Não é recomendado consultas dentro de registros. Utilize com cuidado.
+
+```sql
+CREATE FUNCTION ContarRegistros()
+RETURNS INT
+AS
+BEGIN
+  RETURN (SELECT COUNT(*) FROM categorias);
+END
+```
+
+Utilizando a função:
+
+```sql
+  SELECT dbo.ContarRegistros();
+```
+
+Criando a função GetCategoriaById:
+
+```sql
+CREATE FUNCTION GetCategoriaById(@id INT)
+RETURNS TABLE
+AS
+RETURN (SELECT * FROM categorias WHERE id = @id);
+```
+
+Utilizando a função:
+
+```sql
+SELECT * from dbo.GetCategoriaById(1);
 ```
