@@ -56,6 +56,7 @@
     - [Hints SQL](#hints-sql)
     - [Plano de execução](#plano-de-execução)
     - [Usando corretamente o índice](#usando-corretamente-o-índice)
+    - [Desfragmentando índices](#desfragmentando-índices)
 
 ## Ambiente
 
@@ -1274,3 +1275,42 @@ SELECT descricao FROM Tabela_Teste Where descricao LIKE 'DESCRICAO 900000%';
 ```
 
 ![Comparativo Execution Plan](images/Usando-corretamente-o-indice-01.png)
+
+### Desfragmentando índices
+
+Query para verificar fragmentação de índices:  
+Observação 1: Entre 15% e 30% de fragmentação é recomendado executar uma reorganização dos índices.  
+Observação 2: Acima de 30% é recomendado reconstruir os índices.
+
+```sql
+SELECT OBJECT_NAME(ips.object_id) AS object_name,
+       i.name AS index_name, 
+       ips.avg_fragmentation_in_percent, 
+       ips.page_count
+FROM sys.dm_db_index_physical_stats(DB_ID(), default, default, default, 'SAMPLED') AS ips
+INNER JOIN sys.indexes AS i 
+ON ips.object_id = i.object_id
+   AND ips.index_id = i.index_id
+   AND i.name IS NOT NULL
+ORDER BY page_count DESC;
+```
+
+Reorganizar o índice da tabela:
+
+```sql
+-- Reorganiza o índice "idx_tabela_teste_descricao" da tabela "Tabela_Teste"
+ALTER INDEX idx_tabela_teste_descricao ON Tabela_Teste REORGANIZE
+
+-- Reorganiza todos os índices da tabela "Tabela_Teste"
+ALTER INDEX ALL ON Tabela_Teste REORGANIZE
+```
+
+Reconstruir o índice:
+
+```sql
+-- Reconstrói o índice "idx_tabela_teste_descricao" da tabela "Tabela_Teste"
+ALTER INDEX idx_tabela_teste_descricao ON Tabela_Teste REBUILD
+
+-- Reconstrói todos os índices da tabela "Tabela_Teste"
+ALTER INDEX ALL ON Tabela_Teste REBUILD
+```
