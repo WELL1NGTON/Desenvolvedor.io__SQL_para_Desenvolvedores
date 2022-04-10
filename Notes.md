@@ -45,6 +45,7 @@
     - [Criando uma Stored Procedure](#criando-uma-stored-procedure)
     - [Criando uma View](#criando-uma-view)
     - [Criando sequências](#criando-sequências)
+    - [Criando um campo novo](#criando-um-campo-novo)
 
 ## Ambiente
 
@@ -1014,4 +1015,21 @@ INSERT INTO TabelaTeste(descricao) VALUES ('Teste 02');
 
 -- Verificando que o id vai ser 9 (o valor da sequência seguindo esses comandos)
 SELECT * FROM TabelaTeste;
+```
+
+### Criando um campo novo
+
+Adicionando um campo novo na tabela categorias:
+
+```sql
+-- Adicionando o campo Teste, para adicionar mais campos, basta adicionar uma virgula e informar o novo campo (ex.: Teste VARCHAR(200) DEFAULT 'Teste', Teste2 VARCHAR(200) ...)
+ALTER TABLE categorias
+ADD Teste VARCHAR(200) DEFAULT 'Teste';
+```
+
+Verificar campo foi criado:
+
+```sql
+-- Campo Teste vai estar com valores NULL
+SELECT * FROM categorias;
 ```
