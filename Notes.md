@@ -46,6 +46,7 @@
     - [Criando uma View](#criando-uma-view)
     - [Criando sequências](#criando-sequências)
     - [Criando um campo novo](#criando-um-campo-novo)
+    - [Removendo coluna](#removendo-coluna)
 
 ## Ambiente
 
@@ -1031,5 +1032,25 @@ Verificar campo foi criado:
 
 ```sql
 -- Campo Teste vai estar com valores NULL
+SELECT * FROM categorias;
+```
+
+### Removendo coluna
+
+```sql
+-- Erro, não pode excluir por conta de constraint (default value para a coluna é uma constraint)
+-- "The object 'DF__categoria__Teste__2739D489' is dependent on column 'Teste'."
+ALTER TABLE categorias
+DROP COLUMN Teste;
+
+-- Removendo a constraint
+ALTER TABLE categorias
+DROP CONSTRAINT DF__categoria__Teste__2739D489;
+
+-- Removendo a coluna
+ALTER TABLE categorias
+DROP COLUMN Teste;
+
+-- Coluna não aparece mais no select, foi removida :)
 SELECT * FROM categorias;
 ```
