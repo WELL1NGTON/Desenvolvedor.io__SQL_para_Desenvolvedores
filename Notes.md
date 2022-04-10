@@ -48,6 +48,7 @@
     - [Criando um campo novo](#criando-um-campo-novo)
     - [Removendo coluna](#removendo-coluna)
     - [Renomeando objetos](#renomeando-objetos)
+    - [Gerando backup](#gerando-backup)
 
 ## Ambiente
 
@@ -1079,4 +1080,25 @@ Renomeando tabela:
 
 ```sql
 EXECUTE sp_rename 'dbo.TabelaTeste', 'TabelaAlterada';
+```
+
+### Gerando backup
+
+Gerando backup da tabela na pasta padrão do container docker:  
+Obs.: Devido a estar utilizando uma pasta dentro do repositório git como volume do docker, é possível ver o arquivo a partir do diretório raiz desse repositório com o caminho `./sqlvolume/data/AulaBackup.bak`.
+
+```sql
+USE DesenvolvedorIO;
+
+-- Backup "full", com inicialização
+BACKUP DATABASE DesenvolvedorIO
+TO DISK = '/var/opt/mssql/data/AulaBackup.bak'
+WITH INIT,
+NAME = 'Backup do banco de dados';
+
+-- Backup "diferencial"
+BACKUP DATABASE DesenvolvedorIO
+TO DISK = '/var/opt/mssql/data/AulaBackup-01.bak'
+WITH DIFFERENTIAL,
+NAME = 'Backup do banco de dados - Diferencial';
 ```

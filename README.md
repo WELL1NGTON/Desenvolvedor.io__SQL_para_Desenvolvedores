@@ -150,8 +150,8 @@ Links:
 
 ### Backup
 
-- [ ] Introdução (1:00)
-- [ ] Gerando backup (6:00)
+- [x] Introdução (1:00)
+- [x] Gerando backup (6:00)
 - [ ] Restaurando backup (6:00)
 
 ### Tips & Tricks
