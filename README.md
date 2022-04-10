@@ -158,7 +158,7 @@ Links:
 
 - [x] Introdução (1:00)
 - [x] SQL Server Profiler (10:00)
-- [ ] Hint NoLOCK (6:00)
+- [x] Hint NoLOCK (6:00)
 - [ ] Plano de execução (10:00)
 - [ ] Usando corretamente o índice (6:00)
 - [ ] Desfragmentando índices (5:00)
