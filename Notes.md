@@ -44,6 +44,7 @@
     - [Criando funções](#criando-funções)
     - [Criando uma Stored Procedure](#criando-uma-stored-procedure)
     - [Criando uma View](#criando-uma-view)
+    - [Criando sequências](#criando-sequências)
 
 ## Ambiente
 
@@ -963,4 +964,54 @@ SELECT c.descricao, ca.descricao categoria, c.cadastrado_em
 FROM cursos c
 INNER JOIN categorias ca
 ON c.categoria_id=ca.id
+```
+
+### Criando sequências
+
+Criando sequência MinhaSequencia:
+
+```sql
+CREATE SEQUENCE MinhaSequencia
+AS INT
+START WITH 6
+INCREMENT BY 1
+MINVALUE 6
+MAXVALUE 1000
+-- CYCLE ou NO CYCLE 
+-- NO CYCLE vai gerar uma excessão quando atingir o max
+-- CYCLE retornaria para o min
+NO CYCLE;
+```
+
+Chamando a sequência:
+
+```sql
+-- Retorna 6
+SELECT NEXT VALUE FOR MinhaSequencia;
+
+-- Retorna 7
+SELECT NEXT VALUE FOR MinhaSequencia;
+```
+
+Exemplo com nova tabela:
+
+```sql
+-- Cria tabela teste
+CREATE TABLE TabelaTeste
+(
+    id INT DEFAULT NEXT VALUE FOR MinhaSequencia,
+    descricao VARCHAR(20)
+);
+
+-- Inserindo um registro
+INSERT INTO TabelaTeste(descricao) VALUES ('Teste 01');
+
+-- Verificando que o id vai ser 8 (o valor da sequência seguindo esses comandos)
+SELECT * FROM TabelaTeste;
+
+-- Inserindo mais um registro
+INSERT INTO TabelaTeste(descricao) VALUES ('Teste 02');
+
+-- Verificando que o id vai ser 9 (o valor da sequência seguindo esses comandos)
+SELECT * FROM TabelaTeste;
 ```
