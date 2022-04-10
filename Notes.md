@@ -57,6 +57,7 @@
     - [Plano de execução](#plano-de-execução)
     - [Usando corretamente o índice](#usando-corretamente-o-índice)
     - [Desfragmentando índices](#desfragmentando-índices)
+    - [Contador de registros eficiente](#contador-de-registros-eficiente)
 
 ## Ambiente
 
@@ -1314,3 +1315,37 @@ ALTER INDEX idx_tabela_teste_descricao ON Tabela_Teste REBUILD
 -- Reconstrói todos os índices da tabela "Tabela_Teste"
 ALTER INDEX ALL ON Tabela_Teste REBUILD
 ```
+
+### Contador de registros eficiente
+
+Utilizando Count (usa Table Scan):
+
+```sql
+SET STATISTICS IO, TIME ON
+
+-- Executando 5x a query e copiando os tempos no comentário:
+-- CPU time = 158 ms,  elapsed time = 162 ms.
+-- CPU time = 65 ms,  elapsed time = 66 ms.
+-- CPU time = 72 ms,  elapsed time = 83 ms.
+-- CPU time = 140 ms,  elapsed time = 149 ms.
+-- CPU time = 130 ms,  elapsed time = 137 ms.
+SELECT COUNT(*) FROM Tabela_Teste WITH (NOLOCK)
+```
+
+Utilizando a view de sistema dm_db_partition_stats
+
+```sql
+SET STATISTICS IO, TIME ON
+
+-- Executando 5x a query e copiando os tempos no comentário:
+-- CPU time = 2 ms,  elapsed time = 2 ms.
+-- CPU time = 0 ms,  elapsed time = 1 ms.
+-- CPU time = 0 ms,  elapsed time = 0 ms.
+-- CPU time = 1 ms,  elapsed time = 0 ms.
+-- CPU time = 0 ms,  elapsed time = 2 ms.
+SELECT SUM(s.row_count) FROM sys.dm_db_partition_stats s
+WHERE OBJECT_NAME(object_id) = 'Tabela_Teste'
+AND s.index_id IN(0,1);
+```
+
+![Execution Plan](images/Contador-de-registros-eficiente-01.png)
