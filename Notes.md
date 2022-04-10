@@ -53,6 +53,7 @@
     - [Restaurando backup](#restaurando-backup)
   - [Tips & Tricks](#tips--tricks)
     - [SQL Server Profiler](#sql-server-profiler)
+    - [Hints SQL](#hints-sql)
 
 ## Ambiente
 
@@ -1147,3 +1148,38 @@ Monitoria (executando comando):
 ![Comando executado](images/SQL-Server-Profiler-05.png)
 
 ![Comando executado 2](images/SQL-Server-Profiler-06.png)
+
+### Hints SQL
+
+Hints são recursos que são fornecidos por alguns bancos de dados relacionais que possibilita que no momento em que a gente está escrevendo as instruções SQL, podemos adicionar ali algum tipo de anotação para enviar para otimizador de consultas do próprio banco de dados para que ele possa ignorar o plano de execução que ele está trabalhando internamente.
+
+Exemplo Hint NOLOCK:
+
+```sql
+-- Iniciando Transaction
+BEGIN TRANSACTION
+UPDATE categorias
+SET descricao='Teste Com NOLOCK'
+WHERE id=7
+
+-- Select funciona normal na mesma conexão
+SELECT * FROM categorias;
+```
+
+Em outra conexão:
+
+```sql
+-- Não retorna porque categorias está em lock
+SELECT * FROM categorias;
+
+-- Com o hint NOLOCK, retorna os registros
+SELECT * FROM categorias WITH (NOLOCK);
+```
+
+Na primeira conexão ROLLBACK:
+
+```sql
+ROLLBACK
+```
+
+Observação: os dados da query com nolock não refletem os dados que realmente ficaram no banco nesse exemplo. O NOLOCK é conhecido como uma consulta suja, ele retorna todos os registros, mesmo os que estão dentro de uma transaction que ainda não foi finalizada, podendo retornar dados que foram deletados, estão sendo modificados, etc...
