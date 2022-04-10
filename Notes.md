@@ -47,6 +47,7 @@
     - [Criando sequências](#criando-sequências)
     - [Criando um campo novo](#criando-um-campo-novo)
     - [Removendo coluna](#removendo-coluna)
+    - [Renomeando objetos](#renomeando-objetos)
 
 ## Ambiente
 
@@ -1053,4 +1054,29 @@ DROP COLUMN Teste;
 
 -- Coluna não aparece mais no select, foi removida :)
 SELECT * FROM categorias;
+```
+
+### Renomeando objetos
+
+Renomeando coluna:
+
+```sql
+-- Adicionando coluna Teste
+ALTER TABLE categorias
+ADD Teste VARCHAR(100);
+
+-- procedure sp_rename
+-- primeiro parametro: nome do objeto
+-- segundo parametro: novo nome
+-- terceiro parametro: tipo do objeto
+EXECUTE sp_rename 'dbo.categorias.Teste', 'Observacao', 'COLUMN';
+
+-- Coluna Teste foi renomeada para Observacao
+SELECT * FROM categorias;
+```
+
+Renomeando tabela:
+
+```sql
+EXECUTE sp_rename 'dbo.TabelaTeste', 'TabelaAlterada';
 ```
